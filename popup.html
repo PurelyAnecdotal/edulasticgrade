@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Grades</title>
+        <style>
+            html {
+                display: flex;
+                justify-content: center;
+            }
+
+            body {
+                margin: 1rem;
+                width: 100%;
+                background-color: #1b1b1b;
+                color: white;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                line-height: 150%;
+            }
+
+            .progress {
+                height: 0.5rem;
+                border-radius: 0.25rem;
+            }
+
+            .progress.outer {
+                width: 100%;
+                background-color: red;
+            }
+
+            .progress.inner {
+                width: 0%;
+                background-color: lime;
+                transition: width 0.5s;
+            }
+
+            #info {
+                background-color: darkslategrey;
+                padding: 1rem;
+                border-radius: 0.25rem;
+            }
+
+            img {
+                height: 10rem;
+                display: block;
+                background-color: white;
+            }
+
+            button {
+                background: none;
+                color: white;
+                text-decoration: underline;
+                border: none;
+                padding: 0;
+                cursor: pointer;
+                font-family: inherit;
+                font-size: inherit;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="title">Test title</div>
+        <br />
+        <div class="progress outer">
+            <div class="progress inner"></div>
+        </div>
+        <h1 id="score">Loading...</h1>
+        <p id="info">Only multiple choice questions can be seen right now.</p>
+        <ul></ul>
+    </body>
+</html>
