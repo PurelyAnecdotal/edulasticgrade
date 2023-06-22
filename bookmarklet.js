@@ -1,1 +1,1 @@
-import('https://cdn.jsdelivr.net/gh/nonexistent-name/edulasticgrade/script.min.js');
+import('https://cdn.jsdelivr.net/gh/nonexistent-name/edulasticgrade/script.js');
