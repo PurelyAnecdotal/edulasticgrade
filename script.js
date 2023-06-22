@@ -23,7 +23,9 @@ const fetchAPI = async url =>
 const popup = open('about:blank');
 
 const popupHTML = await (
-    await fetch('https://cdn.jsdelivr.net/gh/nonexistent-name/edulasticgrade/popup.html')
+    await fetch(
+        'https://cdn.jsdelivr.net/gh/nonexistent-name/edulasticgrade/popup.html'
+    )
 ).text();
 
 popup.document.write(popupHTML);
