@@ -6,20 +6,47 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Edulastic Grade Revealer</title>
         <style>
-            html {
-                font-family: sans-serif;
+            body {
+                margin: 1rem;
+                background-color: #1b1b1b;
+                color: white;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                line-height: 150%;
+            }
+
+            a {
+                color: #8cb4ff;
+            }
+
+            div {
+                display: flex;
+                justify-content: center;
+            }
+
+            img {
+                border: 0.1rem solid white;
+                width: 75%;
+                border-radius: 0.5rem;
+            }
+
+            @media (max-width: 666px) {
+                img {
+                    width: 100%;
+                }
             }
         </style>
     </head>
     <body>
         <h1>Edulastic Grade Revealer</h1>
         This script can show the score you got on an Edulastic assignment, even
-        if the grades haven't been released yet.
+        if the grades haven't been released yet. It now also has the ability to
+        show some of the questions on the test, even if the test is not open
+        yet.
         <ol>
             <li>
                 Drag
                 <a
-                    href="javascript:fetch('https://cdn.jsdelivr.net/gh/nonexistent-name/edulasticgrade/script.min.js').then(res => res.text()).then(js => eval(js));"
+                    href="javascript:import('https://cdn.jsdelivr.net/gh/nonexistent-name/edulasticgrade/script.min.js');"
                 >
                     this link
                 </a>
@@ -31,5 +58,13 @@
             </li>
             <li>Click the bookmark</li>
         </ol>
+        <p>
+            The script has been recently updated, and unfortunately it is not
+            compatible with the way the previous version was loaded. If you are
+            using the previous script, you will need to update it. In the
+            future, new versions will automatically update.
+        </p>
+        <br />
+        <div><img src="screenshot.png" /></div>
     </body>
 </html>
