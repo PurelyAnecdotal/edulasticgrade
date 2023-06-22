@@ -53,11 +53,11 @@ popup.document.getElementById('score').innerText = `${
     Math.round((correct / total) * 1000) / 10
 }% ${correct}/${total}`;
 
-popup.document.querySelector('.progress.inner').style.width = `${
+popup.document.getElementById('p-inner').style.width = `${
     (correct / total) * 100
 }%`;
 
-const questionList = popup.document.querySelector('ul');
+const questionList = popup.document.getElementById('questions');
 
 const parser = new DOMParser();
 const parse = html => parser.parseFromString(html, 'text/html');
@@ -66,10 +66,10 @@ test.itemGroups[0].items
     .filter(item => item.rows[0].widgets[0].type === 'multipleChoice')
     .map(item => item.data.questions[0])
     .forEach(question => {
-        const li = document.createElement('li');
-
         const parsed = parse(question.stimulus).body;
-        li.innerText = parsed.innerText;
+
+        const li = document.createElement('li');
+        li.innerText = `${parsed.innerText.trim()} `;
 
         const rawBtn = document.createElement('button');
         rawBtn.innerText = 'View Raw';
@@ -97,10 +97,13 @@ test.itemGroups[0].items
             .map(option => option.label)
             .forEach(label => {
                 const option = document.createElement('li');
-                option.innerText = parse(label).body.innerText;
+                option.innerText = `${parse(label).body.innerText.trim()} `;
 
                 optionList.appendChild(option);
             });
 
         questionList.appendChild(li);
     });
+
+questionList.style.opacity = 1;
+questionList.style.transform = 'translateY(0)';

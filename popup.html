@@ -24,12 +24,12 @@
                 border-radius: 0.25rem;
             }
 
-            .progress.outer {
+            #p-outer {
                 width: 100%;
                 background-color: red;
             }
 
-            .progress.inner {
+            #p-inner {
                 width: 0%;
                 background-color: lime;
                 transition: width 0.5s;
@@ -39,6 +39,12 @@
                 background-color: darkslategrey;
                 padding: 1rem;
                 border-radius: 0.25rem;
+            }
+
+            #questions {
+                opacity: 0;
+                transform: translateY(5rem);
+                transition: opacity 0.5s, transform 0.5s;
             }
 
             img {
@@ -60,13 +66,13 @@
         </style>
     </head>
     <body>
-        <div id="title">Test title</div>
+        <div id="title">Loading Test Name</div>
         <br />
-        <div class="progress outer">
-            <div class="progress inner"></div>
+        <div id="p-outer" class="progress">
+            <div id="p-inner" class="progress"></div>
         </div>
         <h1 id="score">Loading...</h1>
         <p id="info">Only multiple choice questions can be seen right now.</p>
-        <ul></ul>
+        <ul id="questions"></ul>
     </body>
 </html>
