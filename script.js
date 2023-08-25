@@ -1,9 +1,9 @@
 const iframe = document.createElement('iframe');
-iframe.style.display = 'none';
 document.body.appendChild(iframe);
 
-const fetch = iframe.contentWindow.fetch;
-const open = iframe.contentWindow.open;
+const { fetch, open } = iframe.contentWindow;
+
+iframe.remove();
 
 const headers = new Headers({
     Authorization: localStorage.getItem(
