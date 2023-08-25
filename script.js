@@ -7,7 +7,7 @@ iframe.remove();
 
 const headers = new Headers({
     Authorization: localStorage.getItem(
-        JSON.parse(localStorage.getItem('tokens'))[0],
+        JSON.parse(localStorage.getItem('tokens'))[0]
     ),
 });
 
@@ -22,7 +22,7 @@ const popup = open('about:blank');
 
 const popupHTML = await (
     await fetch(
-        'https://cdn.jsdelivr.net/gh/nonexistent-name/edulasticgrade/popup.html',
+        'https://cdn.jsdelivr.net/gh/nonexistent-name/edulasticgrade/popup.html'
     )
 ).text();
 
@@ -32,13 +32,13 @@ popup.document.close();
 const path = location.pathname.split('/');
 
 const test = await fetchAPI(
-    `test/${path[5]}/minimal?testActivityId=${path[7]}`,
+    `test/${path[5]}/minimal?testActivityId=${path[7]}`
 );
 
 popup.document.getElementById('title').innerText = test.title;
 
 const report = await fetchAPI(
-    `test-activity/${path[7]}/report?groupId=${path[3]}`,
+    `test-activity/${path[7]}/report?groupId=${path[3]}`
 );
 
 const total = report.questionActivities.length;
