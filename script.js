@@ -3,7 +3,7 @@ document.body.appendChild(iframe);
 
 const { fetch, open } = iframe.contentWindow;
 
-iframe.remove();
+iframe.style.display = 'none';
 
 const headers = new Headers({
     Authorization: localStorage.getItem(
