@@ -66,6 +66,7 @@ test.itemGroups[0].items
 
         const li = document.createElement('li');
         li.innerText = `${parsed.innerText.trim()} `;
+        questionList.appendChild(li);
 
         const rawBtn = document.createElement('button');
         rawBtn.innerText = 'View Raw';
@@ -86,19 +87,49 @@ test.itemGroups[0].items
             imglink.appendChild(img);
         }
 
-        const optionList = document.createElement('ul');
-        li.appendChild(optionList);
+        const options = document.createElement('ul');
+        li.appendChild(options);
 
         question.options
-            .map((option) => option.label)
+            .map((option) => `${parse(option.label).body.innerText.trim()} `)
             .forEach((label) => {
                 const option = document.createElement('li');
-                option.innerText = `${parse(label).body.innerText.trim()} `;
+                option.innerText = label;
+                options.appendChild(option);
+            });
+    });
 
-                optionList.appendChild(option);
+test.itemGroups[0].items
+    .filter((item) => item.rows[0].widgets[0].type === 'choiceMatrix')
+    .map((item) => item.data.questions[0])
+    .forEach((question) => {
+        const li = document.createElement('li');
+        li.innerText = `${parse(question.stimulus).body.innerText.trim()} `;
+        questionList.appendChild(li);
+
+        const table = document.createElement('table');
+        li.appendChild(table);
+        const row = document.createElement('tr');
+        table.appendChild(row);
+        
+        question.options
+            .map((header) => parse(header).body.innerText.trim())
+            .forEach((header) => {
+                const cell = document.createElement('th');
+                cell.innerText = header;
+                row.appendChild(cell);
             });
 
-        questionList.appendChild(li);
+        const options = document.createElement('ul');
+        li.appendChild(options);
+
+        question.stems
+            .map((stem) => `${parse(stem).body.innerText.trim()} `)
+            .forEach((stem) => {
+                const option = document.createElement('li');
+                option.innerText = stem;
+                options.appendChild(option);
+            });
     });
 
 questionList.style.opacity = 1;
